@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-insert-productos-demo
+      author: igor
+      context: dev
+      runOnChange: false
+      runAlways: false
+      comment: "Insertar datos iniciales de prueba para productos"
+
+      preConditions:
+        - tableExists:
+            tableName: producto
+
+      changes:
+        - insert:
+            tableName: producto
+            columns:
+              - column:
+                  name: nombre
+                  value: "Jabón ecológico"
+              - column:
+                  name: marca
+                  value: "EcoPlus"
+              - column:
+                  name: codigo_barras
+                  value: "1111111111111"
+              - column:
+                  name: precio
+                  valueNumeric: 4.99
+              - column:
+                  name: puntaje_sostenibilidad
+                  valueNumeric: 8.3
+
+        - insert:
+            tableName: producto
+            columns:
+              - column:
+                  name: nombre
+                  value: "Botella reutilizable"
+              - column:
+                  name: marca
+                  value: "GreenLife"
+              - column:
+                  name: codigo_barras
+                  value: "2222222222222"
+              - column:
+                  name: precio
+                  valueNumeric: 9.99
+              - column:
+                  name: puntaje_sostenibilidad
+                  valueNumeric: 9.1
+
+      rollback:
+        - delete:
+            tableName: producto
+            where: "codigo_barras IN ('1111111111111','2222222222222')"

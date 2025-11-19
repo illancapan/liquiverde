@@ -1,0 +1,33 @@
+# ========================
+# Backend: Java / Gradle
+# ========================
+*.class
+*.jar
+*.war
+*.ear
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# VSCode
+.vscode/
+
+# Spring Boot
+spring.log
+
+# ========================
+# Frontend: React / Node
+# ========================
+node_modules/
+build/
+dist/
+out/
+.env*
+.DS_Store
+
+# Docker
+docker-compose.override.yml

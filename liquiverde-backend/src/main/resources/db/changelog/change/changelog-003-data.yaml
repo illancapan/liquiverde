@@ -1,0 +1,208 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-insert-productos-masivos
+      author: igor
+      context: dev
+      runOnChange: false
+      runAlways: false
+      comment: "Carga masiva de 20 productos de prueba"
+
+      preConditions:
+        - tableExists:
+            tableName: producto
+
+      changes:
+
+        # --------------------------
+        # 1. Higiene / Limpieza
+        # --------------------------
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Detergente biodegradable" }
+              - column: { name: marca, value: "GreenWash" }
+              - column: { name: codigo_barras, value: "3333333333333" }
+              - column: { name: precio, valueNumeric: 7.49 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.0 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Lavaloza sin químicos" }
+              - column: { name: marca, value: "BioClean" }
+              - column: { name: codigo_barras, value: "4444444444444" }
+              - column: { name: precio, valueNumeric: 5.49 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 8.8 }
+
+        # --------------------------
+        # 2. Reutilizables
+        # --------------------------
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Bolsa reutilizable de tela" }
+              - column: { name: marca, value: "EcoBag" }
+              - column: { name: codigo_barras, value: "5555555555555" }
+              - column: { name: precio, valueNumeric: 2.99 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.5 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Bombillas metálicas" }
+              - column: { name: marca, value: "MetalStraw" }
+              - column: { name: codigo_barras, value: "6666666666666" }
+              - column: { name: precio, valueNumeric: 3.99 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.7 }
+
+        # --------------------------
+        # 3. Alimentación
+        # --------------------------
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Arroz integral orgánico" }
+              - column: { name: marca, value: "BioGrain" }
+              - column: { name: codigo_barras, value: "7777777777777" }
+              - column: { name: precio, valueNumeric: 2.49 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 8.7 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Pasta integral" }
+              - column: { name: marca, value: "NaturalLife" }
+              - column: { name: codigo_barras, value: "8888888888888" }
+              - column: { name: precio, valueNumeric: 1.89 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 8.0 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Leche vegetal de almendra" }
+              - column: { name: marca, value: "EcoMilk" }
+              - column: { name: codigo_barras, value: "9999999999999" }
+              - column: { name: precio, valueNumeric: 3.49 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 8.9 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Café orgánico" }
+              - column: { name: marca, value: "GreenCoffee" }
+              - column: { name: codigo_barras, value: "1010101010101" }
+              - column: { name: precio, valueNumeric: 6.99 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.2 }
+
+        # --------------------------
+        # 4. Snacks / saludables
+        # --------------------------
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Barra de cereal natural" }
+              - column: { name: marca, value: "BioSnack" }
+              - column: { name: codigo_barras, value: "1212121212121" }
+              - column: { name: precio, valueNumeric: 1.49 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 7.5 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Galletas sin azúcar" }
+              - column: { name: marca, value: "HealthyBite" }
+              - column: { name: codigo_barras, value: "1313131313131" }
+              - column: { name: precio, valueNumeric: 2.29 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 7.9 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Chips de kale" }
+              - column: { name: marca, value: "GreenCrunch" }
+              - column: { name: codigo_barras, value: "1414141414141" }
+              - column: { name: precio, valueNumeric: 3.99 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.0 }
+
+        # --------------------------
+        # 5. Bebidas
+        # --------------------------
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Agua mineral vidrio retornable" }
+              - column: { name: marca, value: "PureGlass" }
+              - column: { name: codigo_barras, value: "1515151515151" }
+              - column: { name: precio, valueNumeric: 1.29 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.8 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Té verde orgánico" }
+              - column: { name: marca, value: "TeaNature" }
+              - column: { name: codigo_barras, value: "1616161616161" }
+              - column: { name: precio, valueNumeric: 2.99 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 8.8 }
+
+        # --------------------------
+        # 6. Higiene personal
+        # --------------------------
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Shampoo sólido natural" }
+              - column: { name: marca, value: "GreenHair" }
+              - column: { name: codigo_barras, value: "1717171717171" }
+              - column: { name: precio, valueNumeric: 4.49 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.3 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Cepillo de dientes de bambú" }
+              - column: { name: marca, value: "EcoBrush" }
+              - column: { name: codigo_barras, value: "1818181818181" }
+              - column: { name: precio, valueNumeric: 2.49 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.6 }
+
+        # --------------------------
+        # 7. Otros
+        # --------------------------
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Esponja compostable" }
+              - column: { name: marca, value: "BioSponge" }
+              - column: { name: codigo_barras, value: "1919191919191" }
+              - column: { name: precio, valueNumeric: 1.19 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 9.4 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Servilletas recicladas" }
+              - column: { name: marca, value: "EcoPaper" }
+              - column: { name: codigo_barras, value: "2020202020202" }
+              - column: { name: precio, valueNumeric: 1.39 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 8.9 }
+
+        - insert:
+            tableName: producto
+            columns:
+              - column: { name: nombre, value: "Detergente ropa hipoalergénico" }
+              - column: { name: marca, value: "SoftClean" }
+              - column: { name: codigo_barras, value: "2121212121212" }
+              - column: { name: precio, valueNumeric: 8.49 }
+              - column: { name: puntaje_sostenibilidad, valueNumeric: 8.6 }
+
+      rollback:
+        - delete:
+            tableName: producto
+            where: "codigo_barras IN (
+              '1111111111111','3333333333333','4444444444444','2222222222222',
+              '5555555555555','6666666666666','7777777777777','8888888888888',
+              '9999999999999','1010101010101','1212121212121','1313131313131',
+              '1414141414141','1515151515151','1616161616161','1717171717171',
+              '1818181818181','1919191919191','2020202020202','2121212121212'
+            )"

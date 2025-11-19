@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/baseline/changelog-001-producto.yaml
+  - include:
+      file: db/changelog/change/changelog-002-data.yaml
+  - include:
+      file: db/changelog/change/changelog-003-data.yaml

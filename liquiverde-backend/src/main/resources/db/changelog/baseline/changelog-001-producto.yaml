@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-producto-table
+      author: igor
+      comment: "Crear tabla producto"
+
+      preConditions:
+        - onFail: MARK_RAN
+        - onError: MARK_RAN
+        - not:
+            tableExists:
+              tableName: producto
+
+      changes:
+        - createTable:
+            tableName: producto
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: nombre
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: marca
+                  type: VARCHAR(100)
+
+              - column:
+                  name: codigo_barras
+                  type: VARCHAR(50)
+                  constraints:
+                    unique: true
+
+              - column:
+                  name: precio
+                  type: NUMERIC(12,2)
+
+              - column:
+                  name: puntaje_sostenibilidad
+                  type: NUMERIC(5,2)
+
+      rollback:
+        - dropTable:
+            tableName: producto

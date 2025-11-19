@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+    postgres:
+        image: postgres:15
+        container_name: liquiverde-postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: liquiverde_db
+        ports:
+            - '5433:5432'
+
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+
+    backend:
+        build:
+            context: ./liquiverde-backend
+        container_name: liquiverde-backend
+        ports:
+            - '8080:8080'
+        environment:
+            SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/liquiverde_db
+            SPRING_DATASOURCE_USERNAME: postgres
+            SPRING_DATASOURCE_PASSWORD: postgres
+            SPRING_PROFILES_ACTIVE: dev
+        depends_on:
+            - postgres
+
+volumes:
+    postgres_data:

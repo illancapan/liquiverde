@@ -1,0 +1,33 @@
+server:
+    port: 8080
+
+spring:
+    application:
+        name: liquiverde-backend
+
+    datasource:
+        url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://postgres:5432/liquiverde_db}
+        username: ${SPRING_DATASOURCE_USERNAME:postgres}
+        password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+        driver-class-name: org.postgresql.Driver
+
+    jpa:
+        hibernate:
+            ddl-auto: none
+        show-sql: true
+        properties:
+            hibernate:
+                format_sql: true
+
+    liquibase:
+        enabled: true
+        change-log: classpath:db/changelog-master.yaml
+        contexts: dev
+
+logging:
+    level:
+        root: INFO
+        org.springframework.web: INFO
+        org.hibernate.SQL: DEBUG
+    pattern:
+        console: '%d{yyyy-MM-dd HH:mm:ss} [%level] ${spring.application.name} - %msg%n'
